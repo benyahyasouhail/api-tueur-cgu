@@ -44,7 +44,7 @@ def analyze_logic(text_cgu):
     
     try:
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-1.5-flash",
             contents=f"{system_prompt}\n\nTEXTE À ANALYSER :\n{text_cgu}",
             config=types.GenerateContentConfig(
                 response_mime_type="application/json"
@@ -67,4 +67,5 @@ def read_root():
 
 if __name__ == "__main__":
     print("🚀 Démarrage du serveur sur http://127.0.0.1:8000")
+
     uvicorn.run(app, host="127.0.0.1", port=8000)
